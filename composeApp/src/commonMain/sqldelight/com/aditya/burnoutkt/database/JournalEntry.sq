@@ -1,0 +1,15 @@
+
+CREATE TABLE JournalEntry(
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    text TEXT NOT NULL,
+    timestamp INTEGER NOT NULL,
+    mood TEXT NOT NULL
+);
+
+insertEntry:
+INSERT INTO JournalEntry(text, timestamp, mood)
+VALUES (?, ?, ?);
+
+getAllEntries:
+SELECT * FROM JournalEntry
+ORDER BY timestamp DESC;
