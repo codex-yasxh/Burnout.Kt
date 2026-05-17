@@ -40,7 +40,14 @@ fun JournalScreen(viewModel: JournalViewModel) {
         Button(
             onClick = {
                 if (text.isNotBlank()) {
-                    viewModel.addEntry(text, "neutral")
+                    // 1. Detect the mood based on the current text
+                    val detectedMood = detectMood(text)
+
+                    // 2. Pass the detected mood to your viewModel
+                    // Assuming your MoodSuggestion is an Enum, use .name to save as String
+                    viewModel.addEntry(text, detectedMood.displayText)
+
+                    // 3. Clear the text field
                     text = ""
                 }
             },
