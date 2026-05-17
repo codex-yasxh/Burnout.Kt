@@ -1,4 +1,5 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -15,11 +16,13 @@ kotlin {
 //        compilerOptions {
 //            jvmTarget.set(JvmTarget.JVM_11)
 //        }
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "11"
+
+        // TODO: Migrate to compilerOptions DSL when Kotlin version supports it
+            compilations.all {
+                kotlinOptions {
+                    jvmTarget = "11"
+                }
             }
-        }
     }
     
     jvm()
